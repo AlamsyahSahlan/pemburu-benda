@@ -1,0 +1,14 @@
+{
+  "name": "pemburu-benda",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Game mencari benda di rumah dengan Object Detection (Apilogy)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "cert": "node scripts/make-cert.js"
+  },
+  "engines": {
+    "node": ">=20.12"
+  }
+}

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7b2ff7">
+  <title>Pemburu Benda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <span>☕</span><span>📖</span><span>✂️</span><span>📱</span><span>🎒</span><span>⚽</span><span>🥄</span><span>💻</span>
+  </div>
+
+  <main class="card">
+    <!-- LAYAR MULAI -->
+    <section id="screen-start" class="screen">
+      <div class="mascot">🕵️</div>
+      <h1 class="title">Pemburu<br><span>Benda</span></h1>
+      <p class="lead">Cari benda di rumah, angkat ke depan kamera, dan biarkan AI mengecek! 🔍</p>
+
+      <h3 class="label">Pilih Level</h3>
+      <div class="choices" data-target="level">
+        <button type="button" class="chip active" data-value="1">🐣<span>Mudah</span></button>
+        <button type="button" class="chip" data-value="2">🦊<span>Sedang</span></button>
+        <button type="button" class="chip" data-value="3">🦁<span>Sulit</span></button>
+        <button type="button" class="chip" data-value="0">🎲<span>Campur</span></button>
+      </div>
+      <input type="hidden" id="level" value="1">
+
+      <h3 class="label">Jumlah Ronde</h3>
+      <div class="choices small" data-target="rounds">
+        <button type="button" class="chip" data-value="3">3</button>
+        <button type="button" class="chip active" data-value="5">5</button>
+        <button type="button" class="chip" data-value="10">10</button>
+      </div>
+      <input type="hidden" id="rounds" value="5">
+
+      <button id="btn-start" class="btn btn-go">🚀 Mulai Berburu!</button>
+    </section>
+
+    <!-- LAYAR MAIN -->
+    <section id="screen-play" class="screen" hidden>
+      <div class="hud">
+        <span class="pill">🎯 <b id="round-no">1</b>/<b id="round-total">5</b></span>
+        <span class="pill time-pill">⏱️ <b id="time-left">30</b></span>
+        <span class="pill score-pill">⭐ <b id="score">0</b></span>
+      </div>
+      <div class="timer"><div id="timer-bar"></div></div>
+
+      <div class="target-card">
+        <p class="prompt">Ayo cari…</p>
+        <div id="target-emoji" class="emoji">☕</div>
+        <div id="target" class="target">GELAS</div>
+        <p id="hint" class="hint"></p>
+      </div>
+
+      <div id="cam-wrap" class="cam-wrap" hidden>
+        <video id="video" autoplay playsinline muted></video>
+        <div id="scan" class="scan"><i></i><i></i><i></i><i></i><b class="laser"></b></div>
+        <span class="badge"><span class="dot"></span> Angkat benda ke depan kamera</span>
+        <button id="btn-flip" class="flip" type="button" title="Ganti kamera depan/belakang" hidden>🔄</button>
+      </div>
+      <img id="preview" alt="" hidden>
+
+      <label id="btn-photo" class="btn btn-photo" hidden>
+        📷 Foto Sekarang
+        <input id="camera" type="file" accept="image/*" capture="environment" hidden>
+      </label>
+
+      <p id="status" class="status"></p>
+      <p id="seen" class="seen"></p>
+
+      <button id="btn-next" class="btn btn-go" hidden>Lanjut ➜</button>
+      <button id="btn-skip" class="btn-link">Lewati ⏭️</button>
+    </section>
+
+    <!-- LAYAR SELESAI -->
+    <section id="screen-end" class="screen" hidden>
+      <div class="trophy">🏆</div>
+      <h1 class="title small">Hebat!</h1>
+      <div id="stars" class="stars"></div>
+      <p class="final">Skor kamu</p>
+      <div id="final-score" class="final-score">0</div>
+      <ul id="summary" class="summary"></ul>
+      <button id="btn-again" class="btn btn-go">🔁 Main Lagi</button>
+    </section>
+  </main>
+
+  <div id="confetti" class="confetti" aria-hidden="true"></div>
+
+  <script src="objects.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
