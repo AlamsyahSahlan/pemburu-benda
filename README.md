@@ -2,6 +2,13 @@
 
 Pemburu Benda adalah game edukasi berbasis web untuk anak. Game memberi tantangan seperti "Cari **GELAS** dalam 30 detik!", lalu anak berkeliling rumah dan cukup **mengarahkan kamera** ke benda yang diminta. AI **Object Detection** (telkom_ai_dag di Apilogy) mengecek secara otomatis, tanpa perlu menekan tombol foto.
 
+## 📸 Tampilan
+
+| Layar Mulai | Saat Bermain |
+|:---:|:---:|
+| <img src="docs/screenshot-start.png" alt="Layar mulai: pilih level dan jumlah ronde" width="280"> | <img src="docs/screenshot-play.png" alt="Layar bermain: target benda, timer, skor, dan kamera" width="280"> |
+| Pilih level dan jumlah ronde | Target benda, timer, skor, dan kamera yang terus memindai |
+
 ## ✨ Fitur
 
 - **Deteksi benda real-time:** gambar dari kamera dikirim ke AI sekitar setiap 1 detik.
