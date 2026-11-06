@@ -76,7 +76,7 @@ body {
 .lead { color: var(--muted); margin: 8px 0 18px; font-size: 1.05rem; }
 .label { margin: 14px 0 8px; font-size: 1rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-.choices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.choices { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
 .choices.small { grid-template-columns: repeat(3, 1fr); }
 .chip {
   font: inherit; font-size: 1.6rem; font-weight: 700;
@@ -85,7 +85,7 @@ body {
   border: 3px solid #eee6fb; background: #faf7ff; color: var(--ink);
   transition: transform .15s, border-color .15s, background .15s, box-shadow .15s;
 }
-.chip span { font-size: .85rem; font-weight: 600; }
+.chip span { font-size: .75rem; font-weight: 600; }
 .choices.small .chip { font-size: 1.3rem; padding: 12px 4px; }
 .chip:hover { transform: translateY(-2px); }
 .chip.active {
@@ -231,6 +231,7 @@ body {
   .title { font-size: 2.2rem; }
   .target { font-size: 1.9rem; }
   .chip { font-size: 1.3rem; }
+  .chip span { font-size: .65rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

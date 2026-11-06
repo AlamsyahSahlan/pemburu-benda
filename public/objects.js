@@ -1,41 +1,50 @@
-// Daftar benda untuk "Pemburu Benda" - hanya benda yang bisa diangkat dan ditunjukkan ke kamera.
-// label  : nama kelas dari API Object Detection (harus persis sama)
+// Daftar benda "Pemburu Benda: Edisi Kampus" - barang yang biasa dibawa mahasiswa ke kelas.
+// label  : nama kelas dari API Object Detection (harus persis sama, 80 label COCO)
 // all    : untuk tantangan beberapa benda sekaligus; semua label harus terlihat bersamaan
 // also   : label lain yang juga dianggap benar
-// level  : 1 = mudah, 2 = sedang, 3 = sulit (2 benda sekaligus)
+// level  : 1 = mudah, 2 = sedang, 3 = sulit (2 benda sekaligus), 4 = nyeleneh
 window.TARGETS = [
-  { label: 'cup',           name: 'Gelas / Cangkir', emoji: '☕', hint: 'Gelas minum atau cangkir teh', level: 1 },
-  { label: 'bottle',        name: 'Botol',           emoji: '🧴', hint: 'Botol minum, botol kecap, botol sabun', level: 1 },
-  { label: 'book',          name: 'Buku',            emoji: '📖', hint: 'Buku cerita atau buku pelajaran', level: 1 },
-  { label: 'spoon',         name: 'Sendok',          emoji: '🥄', hint: 'Di laci dapur atau rak piring', level: 1 },
-  { label: 'bowl',          name: 'Mangkuk',         emoji: '🥣', hint: 'Di rak piring dapur', level: 1 },
-  { label: 'cell phone',    name: 'HP',              emoji: '📱', hint: 'Pinjam HP Ayah atau Ibu', level: 1 },
-  { label: 'remote',        name: 'Remot',           emoji: '🎛️', hint: 'Remot TV atau remot AC', level: 1 },
-  { label: 'fork',          name: 'Garpu',           emoji: '🍴', hint: 'Teman si sendok', level: 1 },
-  { label: 'toothbrush',    name: 'Sikat Gigi',      emoji: '🪥', hint: 'Di kamar mandi', level: 1 },
-  { label: 'scissors',      name: 'Gunting',         emoji: '✂️', hint: 'Di kotak alat tulis (hati-hati ya!)', level: 1 },
+  { label: 'cell phone', name: 'HP',                emoji: '📱', hint: 'Yang lagi kamu pegang juga boleh 😏', level: 1 },
+  { label: 'laptop',     name: 'Laptop',            emoji: '💻', hint: 'Buka setengah supaya layar & keyboard kelihatan', level: 1 },
+  { label: 'bottle',     name: 'Botol Minum',       emoji: '🧴', hint: 'Tumbler, botol air mineral, atau botol teh', also: ['cup'], level: 1 },
+  { label: 'book',       name: 'Buku / Binder',     emoji: '📖', hint: 'Buku catatan, binder, atau modul kuliah', level: 1 },
+  { label: 'backpack',   name: 'Tas Ransel',        emoji: '🎒', hint: 'Angkat tasmu ke depan kamera', level: 1 },
+  { label: 'cup',        name: 'Cup Kopi / Gelas',  emoji: '☕', hint: 'Cup kopi, es teh, atau gelas plastik', level: 1 },
+  { label: 'mouse',      name: 'Mouse',             emoji: '🖱️', hint: 'Mouse wireless dari tas laptop', level: 1 },
+  { label: 'keyboard',   name: 'Keyboard',          emoji: '⌨️', hint: 'Keyboard eksternal atau keyboard laptop', level: 1 },
+  { label: 'handbag',    name: 'Tas Selempang / Tote', emoji: '👜', hint: 'Sling bag, tote bag, atau tas tangan', level: 1 },
+  { label: 'umbrella',   name: 'Payung',            emoji: '☂️', hint: 'Payung lipat andalan musim hujan', level: 1 },
 
-  { label: 'laptop',        name: 'Laptop',          emoji: '💻', hint: 'Komputer lipat', level: 2 },
-  { label: 'mouse',         name: 'Mouse Komputer',  emoji: '🖱️', hint: 'Bukan tikus sungguhan ya!', level: 2 },
-  { label: 'backpack',      name: 'Tas Ransel',      emoji: '🎒', hint: 'Tas sekolah', level: 2 },
-  { label: 'sports ball',   name: 'Bola',            emoji: '⚽', hint: 'Bola sepak, bola basket, bola apa saja', level: 2 },
-  { label: 'handbag',       name: 'Tas Tangan',      emoji: '👜', hint: 'Tas milik Ibu', level: 2 },
-  { label: 'clock',         name: 'Jam Weker',       emoji: '⏰', hint: 'Jam meja atau jam weker (bukan jam tangan)', level: 2 },
-  { label: 'tennis racket', name: 'Raket',           emoji: '🏸', hint: 'Raket badminton atau raket tenis', level: 2 },
-  { label: 'potted plant',  name: 'Tanaman Pot',     emoji: '🪴', hint: 'Tanaman di pot kecil yang bisa diangkat', level: 2 },
-  { label: 'vase',          name: 'Vas Bunga',       emoji: '🏺', hint: 'Vas kecil di meja (pegang hati-hati!)', level: 2 },
-  { label: 'tie',           name: 'Dasi',            emoji: '👔', hint: 'Dasi sekolah atau dasi Ayah', level: 2 },
+  { label: 'scissors',    name: 'Gunting',           emoji: '✂️', hint: 'Sisa tugas maket atau kliping', level: 2 },
+  { label: 'spoon',       name: 'Sendok',            emoji: '🥄', hint: 'Sendok dari kotak bekal', level: 2 },
+  { label: 'fork',        name: 'Garpu',             emoji: '🍴', hint: 'Teman si sendok di kotak bekal', level: 2 },
+  { label: 'banana',      name: 'Pisang',            emoji: '🍌', hint: 'Bekal sehat anak kos', level: 2 },
+  { label: 'apple',       name: 'Apel',              emoji: '🍎', hint: 'Camilan sehat sebelum kuis', level: 2 },
+  { label: 'orange',      name: 'Jeruk',             emoji: '🍊', hint: 'Jeruk bekal, jangan dikupas dulu', level: 2 },
+  { label: 'sandwich',    name: 'Roti Isi',          emoji: '🥪', hint: 'Roti sarapan dari minimarket', level: 2 },
+  { label: 'donut',       name: 'Donat',             emoji: '🍩', hint: 'Donat titipan teman (jangan dimakan dulu!)', level: 2 },
+  { label: 'teddy bear',  name: 'Boneka',            emoji: '🧸', hint: 'Boneka kecil atau gantungan kunci boneka', level: 2 },
+  { label: 'tie',         name: 'Dasi',              emoji: '👔', hint: 'Buat yang habis presentasi atau sidang', level: 2 },
+  { label: 'sports ball', name: 'Bola',              emoji: '⚽', hint: 'Anak UKM futsal atau basket pasti bawa', level: 2 },
+  { label: 'toothbrush',  name: 'Sikat Gigi',        emoji: '🪥', hint: 'Anak kos yang nginep di kampus', level: 2 },
+  { label: 'remote',      name: 'Pointer / Remot',   emoji: '🎛️', hint: 'Pointer presentasi atau remot AC kelas', level: 2 },
+  { label: 'suitcase',    name: 'Koper',             emoji: '🧳', hint: 'Yang habis kelas langsung pulang kampung', level: 2 },
 
-  { all: ['spoon', 'bowl'],          name: 'Sendok + Mangkuk', emoji: '🥄🥣', hint: 'Tunjukkan dua-duanya sekaligus!', level: 3 },
-  { all: ['spoon', 'fork'],          name: 'Sendok + Garpu',   emoji: '🥄🍴', hint: 'Pasangan alat makan', level: 3 },
-  { all: ['cup', 'bottle'],          name: 'Gelas + Botol',    emoji: '☕🧴', hint: 'Siap-siap minum!', level: 3 },
-  { all: ['cell phone', 'remote'],   name: 'HP + Remot',       emoji: '📱🎛️', hint: 'Dua benda bertombol', level: 3 },
-  { all: ['book', 'scissors'],       name: 'Buku + Gunting',   emoji: '📖✂️', hint: 'Perlengkapan sekolah', level: 3 },
-  { all: ['laptop', 'mouse'],        name: 'Laptop + Mouse',   emoji: '💻🖱️', hint: 'Pasangan komputer', level: 3 },
-  { all: ['toothbrush', 'cup'],      name: 'Sikat Gigi + Gelas', emoji: '🪥☕', hint: 'Waktunya gosok gigi!', level: 3 },
-  { all: ['backpack', 'book'],       name: 'Tas Ransel + Buku', emoji: '🎒📖', hint: 'Siap berangkat sekolah', level: 3 },
-  { all: ['sports ball', 'bottle'],  name: 'Bola + Botol',     emoji: '⚽🧴', hint: 'Siap olahraga!', level: 3 },
-  { all: ['clock', 'book'],          name: 'Jam Weker + Buku', emoji: '⏰📖', hint: 'Waktunya belajar', level: 3 }
+  { all: ['laptop', 'mouse'],       name: 'Laptop + Mouse',  emoji: '💻🖱️', hint: 'Setup nugas lengkap', level: 3 },
+  { all: ['laptop', 'cell phone'],  name: 'Laptop + HP',     emoji: '💻📱', hint: 'Multitasking: Zoom sambil balas grup', level: 3 },
+  { all: ['laptop', 'cup'],         name: 'Laptop + Kopi',   emoji: '💻☕', hint: 'Nugas ala anak kafe', level: 3 },
+  { all: ['laptop', 'book'],        name: 'Laptop + Buku',   emoji: '💻📖', hint: 'Belajar hybrid', level: 3 },
+  { all: ['book', 'bottle'],        name: 'Buku + Botol',    emoji: '📖🧴', hint: 'Siap kuliah pagi', level: 3 },
+  { all: ['backpack', 'umbrella'],  name: 'Ransel + Payung', emoji: '🎒☂️', hint: 'Siap menembus hujan ke kampus', level: 3 },
+  { all: ['banana', 'bottle'],      name: 'Pisang + Botol',  emoji: '🍌🧴', hint: 'Bekal hemat akhir bulan', level: 3 },
+  { all: ['spoon', 'fork'],         name: 'Sendok + Garpu',  emoji: '🥄🍴', hint: 'Alat makan bekal', level: 3 },
+  { all: ['sandwich', 'cup'],       name: 'Roti + Kopi',     emoji: '🥪☕', hint: 'Sarapan sambil kelas pagi', level: 3 },
+  { all: ['book', 'scissors'],      name: 'Buku + Gunting',  emoji: '📖✂️', hint: 'Tugas kliping dadakan', level: 3 },
+
+  // Nyeleneh: mustahil dibawa ke kelas, jadi pemain harus kreatif (gambar di layar HP teman juga dideteksi AI).
+  { label: 'refrigerator', name: 'Kulkas', emoji: '🧊', hint: 'Bawa kulkas ke kelas?! 😱 Gambar kulkas di layar HP teman juga dihitung', level: 4 },
+  { all: ['elephant', 'refrigerator'], name: 'Gajah + Kulkas', emoji: '🐘🧊',
+    hint: 'Teka-teki klasik: gimana masukin gajah ke kulkas? Tunjukkan dua-duanya sekaligus! 🤣', level: 4 }
 ];
 
 // Label yang dianggap sama oleh game.
