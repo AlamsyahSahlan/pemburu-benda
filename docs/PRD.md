@@ -15,7 +15,7 @@
 
 Pemburu Benda adalah game web berbasis kamera untuk **mahasiswa di dalam kelas**. Game memberi tantangan seperti "Cari **LAPTOP + MOUSE** dalam 30 detik!". Pemain lalu mengeluarkan barang dari tas dan mengangkatnya ke depan kamera HP atau laptop. AI **Object Detection** (Telkom AI DAG via Apilogy) mengecek gambar kamera kurang lebih setiap 1 detik. Pemain tidak perlu menekan tombol foto.
 
-Edisi Kampus memakai barang yang **biasa dibawa mahasiswa ke kelas**, misalnya HP, laptop, tumbler, binder, bekal, dan payung. Ada juga level **Nyeleneh** berisi tantangan yang mustahil dibawa ke kelas, seperti kulkas dan "gajah + kulkas". Untuk level ini pemain harus kreatif, misalnya menunjukkan gambar di layar HP teman.
+Edisi Kampus hanya memakai **perlengkapan mahasiswa** yang biasa dibawa ke kelas, misalnya HP, laptop, botol minum, buku, tas, mouse, gunting, payung, dan dasi. Tidak ada buah, makanan, hewan, atau perabot. Ada juga level **Nyeleneh** yang tetap memakai perlengkapan mahasiswa, tapi lucu: "Bongkar Isi Tas" (5 barang sekaligus) dan "Gaya Sidang Skripsi" (dasi + laptop + pointer).
 
 ## 2. Latar Belakang & Masalah
 
@@ -118,6 +118,10 @@ Edisi Kampus memakai barang yang **biasa dibawa mahasiswa ke kelas**, misalnya H
 
 Database disimpan statis di `public/objects.js`. Nilai `label` **wajib** salah satu dari 80 label COCO yang dikenali API.
 
+**Aturan isi database:** hanya **perlengkapan mahasiswa** yang dibawa ke kelas. Tidak ada buah atau makanan (sulit dideteksi dan jarang dibawa), hewan, atau perabot besar seperti kulkas.
+
+> **Kenapa tidak ada pulpen, pensil, penghapus, stapler, atau charger?** Model AI (dataset COCO, 80 kelas) **tidak punya** label untuk barang-barang itu, jadi AI tidak akan pernah mengenalinya. Perlengkapan mahasiswa yang bisa dikenali hanya yang ada di tabel berikut.
+
 ### Level 1 — Mudah (barang yang hampir pasti ada di tas)
 
 | # | Label API | Nama tampil | Emoji | Petunjuk | Catatan |
@@ -127,30 +131,20 @@ Database disimpan statis di `public/objects.js`. Nilai `label` **wajib** salah s
 | 3 | `bottle` | Botol Minum | 🧴 | Tumbler, botol air mineral, atau botol teh | `also: ['cup']` karena tumbler sering terbaca *cup* |
 | 4 | `book` | Buku / Binder | 📖 | Buku catatan, binder, atau modul kuliah | |
 | 5 | `backpack` | Tas Ransel | 🎒 | Angkat tasmu ke depan kamera | |
-| 6 | `cup` | Cup Kopi / Gelas | ☕ | Cup kopi, es teh, atau gelas plastik | Alias `wine glass` |
-| 7 | `mouse` | Mouse | 🖱️ | Mouse wireless dari tas laptop | |
-| 8 | `keyboard` | Keyboard | ⌨️ | Keyboard eksternal atau keyboard laptop | |
-| 9 | `handbag` | Tas Selempang / Tote | 👜 | Sling bag, tote bag, atau tas tangan | |
-| 10 | `umbrella` | Payung | ☂️ | Payung lipat andalan musim hujan | Lebih mudah terdeteksi jika dibuka |
+| 6 | `mouse` | Mouse | 🖱️ | Mouse wireless dari tas laptop | |
+| 7 | `cup` | Tumbler / Gelas | 🥤 | Tumbler, gelas, atau cup minuman | Alias `wine glass` |
+| 8 | `handbag` | Tas Selempang / Tote | 👜 | Sling bag, tote bag, atau tas tangan | |
 
-### Level 2 — Sedang (barang yang tidak dibawa semua orang)
+### Level 2 — Sedang (perlengkapan yang tidak dibawa semua orang)
 
-| # | Label API | Nama tampil | Emoji | Petunjuk |
-|---|---|---|---|---|
-| 1 | `scissors` | Gunting | ✂️ | Sisa tugas maket atau kliping |
-| 2 | `spoon` | Sendok | 🥄 | Sendok dari kotak bekal |
-| 3 | `fork` | Garpu | 🍴 | Teman si sendok di kotak bekal |
-| 4 | `banana` | Pisang | 🍌 | Bekal sehat anak kos |
-| 5 | `apple` | Apel | 🍎 | Camilan sehat sebelum kuis |
-| 6 | `orange` | Jeruk | 🍊 | Jeruk bekal, jangan dikupas dulu |
-| 7 | `sandwich` | Roti Isi | 🥪 | Roti sarapan dari minimarket |
-| 8 | `donut` | Donat | 🍩 | Donat titipan teman (jangan dimakan dulu!) |
-| 9 | `teddy bear` | Boneka | 🧸 | Boneka kecil atau gantungan kunci boneka |
-| 10 | `tie` | Dasi | 👔 | Buat yang habis presentasi atau sidang |
-| 11 | `sports ball` | Bola | ⚽ | Anak UKM futsal atau basket pasti bawa |
-| 12 | `toothbrush` | Sikat Gigi | 🪥 | Anak kos yang nginep di kampus |
-| 13 | `remote` | Pointer / Remot | 🎛️ | Pointer presentasi atau remot AC kelas |
-| 14 | `suitcase` | Koper | 🧳 | Yang habis kelas langsung pulang kampung |
+| # | Label API | Nama tampil | Emoji | Petunjuk | Catatan |
+|---|---|---|---|---|---|
+| 1 | `keyboard` | Keyboard | ⌨️ | Keyboard eksternal atau keyboard laptop | |
+| 2 | `scissors` | Gunting | ✂️ | Sisa tugas maket atau kliping | |
+| 3 | `umbrella` | Payung | ☂️ | Payung lipat andalan musim hujan | Lebih mudah terdeteksi jika dibuka |
+| 4 | `tie` | Dasi | 👔 | Buat yang habis presentasi atau sidang | |
+| 5 | `remote` | Pointer Presentasi | 🎛️ | Clicker / pointer untuk presentasi | Model membacanya sebagai *remote* |
+| 6 | `suitcase` | Koper | 🧳 | Yang habis kelas langsung pulang kampung | |
 
 ### Level 3 — Sulit (2 barang harus terlihat **bersamaan** di satu frame)
 
@@ -158,23 +152,23 @@ Database disimpan statis di `public/objects.js`. Nilai `label` **wajib** salah s
 |---|---|---|---|---|
 | 1 | `laptop` + `mouse` | Laptop + Mouse | 💻🖱️ | Setup nugas lengkap |
 | 2 | `laptop` + `cell phone` | Laptop + HP | 💻📱 | Multitasking: Zoom sambil balas grup |
-| 3 | `laptop` + `cup` | Laptop + Kopi | 💻☕ | Nugas ala anak kafe |
-| 4 | `laptop` + `book` | Laptop + Buku | 💻📖 | Belajar hybrid |
-| 5 | `book` + `bottle` | Buku + Botol | 📖🧴 | Siap kuliah pagi |
-| 6 | `backpack` + `umbrella` | Ransel + Payung | 🎒☂️ | Siap menembus hujan ke kampus |
-| 7 | `banana` + `bottle` | Pisang + Botol | 🍌🧴 | Bekal hemat akhir bulan |
-| 8 | `spoon` + `fork` | Sendok + Garpu | 🥄🍴 | Alat makan bekal |
-| 9 | `sandwich` + `cup` | Roti + Kopi | 🥪☕ | Sarapan sambil kelas pagi |
-| 10 | `book` + `scissors` | Buku + Gunting | 📖✂️ | Tugas kliping dadakan |
+| 3 | `laptop` + `book` | Laptop + Buku | 💻📖 | Belajar hybrid |
+| 4 | `laptop` + `cup` | Laptop + Tumbler | 💻🥤 | Nugas ala anak kafe |
+| 5 | `backpack` + `laptop` | Ransel + Laptop | 🎒💻 | Isi wajib tas mahasiswa |
+| 6 | `book` + `bottle` | Buku + Botol | 📖🧴 | Siap kuliah pagi |
+| 7 | `backpack` + `bottle` | Ransel + Botol | 🎒🧴 | Siap berangkat ngampus |
+| 8 | `cell phone` + `book` | HP + Buku | 📱📖 | Foto catatan teman sebelum ujian |
+| 9 | `book` + `scissors` | Buku + Gunting | 📖✂️ | Tugas kliping dadakan |
+| 10 | `backpack` + `umbrella` | Ransel + Payung | 🎒☂️ | Siap menembus hujan ke kampus |
 
-### Level 4 — 🤪 Nyeleneh (mustahil dibawa ke kelas)
+### Level 4 — 🤪 Nyeleneh (tetap perlengkapan mahasiswa, tapi banyak sekaligus)
 
-| # | Label API | Nama tampil | Emoji | Petunjuk | Kenapa lucu |
+| # | Label API (`all`) | Nama tampil | Emoji | Petunjuk | Kenapa lucu |
 |---|---|---|---|---|---|
-| 1 | `refrigerator` | Kulkas | 🧊 | Bawa kulkas ke kelas?! 😱 Gambar kulkas di layar HP teman juga dihitung | Tidak ada yang bawa kulkas ke kelas. Pemain akan berlomba mencari gambar kulkas di Google lalu menyodorkan layar HP ke kamera. Ini juga membuktikan bahwa AI mengenali **gambar di layar**, bukan hanya benda asli. |
-| 2 | `elephant` + `refrigerator` | Gajah + Kulkas | 🐘🧊 | Teka-teki klasik: gimana masukin gajah ke kulkas? Tunjukkan dua-duanya sekaligus! 🤣 | Mengangkat teka-teki receh "cara memasukkan gajah ke kulkas". Pemain harus menampilkan gambar gajah dan kulkas di dua HP sekaligus atau satu gambar berisi keduanya. Cocok untuk kerja sama tim. |
+| 1 | `backpack` + `laptop` + `cell phone` + `book` + `bottle` | Bongkar Isi Tas | 🎒💻📱📖🧴 | Keluarkan SEMUA: ransel, laptop, HP, buku, botol, tunjukkan barengan! 🤣 | Pemain harus membongkar seluruh isi tas dan menyusun 5 barang dalam satu frame. Biasanya butuh bantuan teman untuk memegang, jadi suasana kelas jadi heboh. |
+| 2 | `tie` + `laptop` + `remote` | Gaya Sidang Skripsi | 👔💻🎛️ | Dasi + laptop + pointer. Latihan sidang dari sekarang 😎 | Pemain berpose seperti sedang sidang skripsi: pakai dasi, buka laptop, dan pegang pointer. Lucu untuk difoto dan relatable untuk mahasiswa. |
 
-> **Catatan fasilitator:** Level Nyeleneh sengaja dibuat untuk memancing diskusi, misalnya "Kenapa AI tetap mengenali kulkas walaupun hanya foto?" Jawabannya: model hanya melihat piksel dan tidak tahu benda itu asli atau gambar.
+> **Catatan fasilitator:** Level Nyeleneh bisa dipakai untuk diskusi, misalnya "Kenapa makin banyak barang, makin susah dikenali?" Jawabannya: setiap barang harus cukup besar dan jelas di frame agar confidence-nya ≥ 0,5.
 
 ### Alias & Terjemahan
 - `ALIASES = { cup: ['cup', 'wine glass'] }`

@@ -102,49 +102,42 @@ openssl req -x509 -newkey rsa:2048 -nodes -sha256 -days 825 -keyout certs/key.pe
 Buat folder certs/ dulu. Cetak petunjuk setelah selesai.
 
 # DATABASE BARANG (public/objects.js) — salin persis
+Hanya perlengkapan mahasiswa. JANGAN tambahkan buah, makanan, hewan, atau perabot.
+(Pulpen/pensil/penghapus/charger tidak ada di label COCO, jadi tidak bisa dipakai.)
 window.TARGETS = [
   { label: 'cell phone', name: 'HP', emoji: '📱', hint: 'Yang lagi kamu pegang juga boleh 😏', level: 1 },
   { label: 'laptop', name: 'Laptop', emoji: '💻', hint: 'Buka setengah supaya layar & keyboard kelihatan', level: 1 },
   { label: 'bottle', name: 'Botol Minum', emoji: '🧴', hint: 'Tumbler, botol air mineral, atau botol teh', also: ['cup'], level: 1 },
   { label: 'book', name: 'Buku / Binder', emoji: '📖', hint: 'Buku catatan, binder, atau modul kuliah', level: 1 },
   { label: 'backpack', name: 'Tas Ransel', emoji: '🎒', hint: 'Angkat tasmu ke depan kamera', level: 1 },
-  { label: 'cup', name: 'Cup Kopi / Gelas', emoji: '☕', hint: 'Cup kopi, es teh, atau gelas plastik', level: 1 },
   { label: 'mouse', name: 'Mouse', emoji: '🖱️', hint: 'Mouse wireless dari tas laptop', level: 1 },
-  { label: 'keyboard', name: 'Keyboard', emoji: '⌨️', hint: 'Keyboard eksternal atau keyboard laptop', level: 1 },
+  { label: 'cup', name: 'Tumbler / Gelas', emoji: '🥤', hint: 'Tumbler, gelas, atau cup minuman', level: 1 },
   { label: 'handbag', name: 'Tas Selempang / Tote', emoji: '👜', hint: 'Sling bag, tote bag, atau tas tangan', level: 1 },
-  { label: 'umbrella', name: 'Payung', emoji: '☂️', hint: 'Payung lipat andalan musim hujan', level: 1 },
+  { label: 'keyboard', name: 'Keyboard', emoji: '⌨️', hint: 'Keyboard eksternal atau keyboard laptop', level: 2 },
   { label: 'scissors', name: 'Gunting', emoji: '✂️', hint: 'Sisa tugas maket atau kliping', level: 2 },
-  { label: 'spoon', name: 'Sendok', emoji: '🥄', hint: 'Sendok dari kotak bekal', level: 2 },
-  { label: 'fork', name: 'Garpu', emoji: '🍴', hint: 'Teman si sendok di kotak bekal', level: 2 },
-  { label: 'banana', name: 'Pisang', emoji: '🍌', hint: 'Bekal sehat anak kos', level: 2 },
-  { label: 'apple', name: 'Apel', emoji: '🍎', hint: 'Camilan sehat sebelum kuis', level: 2 },
-  { label: 'orange', name: 'Jeruk', emoji: '🍊', hint: 'Jeruk bekal, jangan dikupas dulu', level: 2 },
-  { label: 'sandwich', name: 'Roti Isi', emoji: '🥪', hint: 'Roti sarapan dari minimarket', level: 2 },
-  { label: 'donut', name: 'Donat', emoji: '🍩', hint: 'Donat titipan teman (jangan dimakan dulu!)', level: 2 },
-  { label: 'teddy bear', name: 'Boneka', emoji: '🧸', hint: 'Boneka kecil atau gantungan kunci boneka', level: 2 },
+  { label: 'umbrella', name: 'Payung', emoji: '☂️', hint: 'Payung lipat andalan musim hujan', level: 2 },
   { label: 'tie', name: 'Dasi', emoji: '👔', hint: 'Buat yang habis presentasi atau sidang', level: 2 },
-  { label: 'sports ball', name: 'Bola', emoji: '⚽', hint: 'Anak UKM futsal atau basket pasti bawa', level: 2 },
-  { label: 'toothbrush', name: 'Sikat Gigi', emoji: '🪥', hint: 'Anak kos yang nginep di kampus', level: 2 },
-  { label: 'remote', name: 'Pointer / Remot', emoji: '🎛️', hint: 'Pointer presentasi atau remot AC kelas', level: 2 },
+  { label: 'remote', name: 'Pointer Presentasi', emoji: '🎛️', hint: 'Clicker / pointer untuk presentasi', level: 2 },
   { label: 'suitcase', name: 'Koper', emoji: '🧳', hint: 'Yang habis kelas langsung pulang kampung', level: 2 },
   { all: ['laptop', 'mouse'], name: 'Laptop + Mouse', emoji: '💻🖱️', hint: 'Setup nugas lengkap', level: 3 },
   { all: ['laptop', 'cell phone'], name: 'Laptop + HP', emoji: '💻📱', hint: 'Multitasking: Zoom sambil balas grup', level: 3 },
-  { all: ['laptop', 'cup'], name: 'Laptop + Kopi', emoji: '💻☕', hint: 'Nugas ala anak kafe', level: 3 },
   { all: ['laptop', 'book'], name: 'Laptop + Buku', emoji: '💻📖', hint: 'Belajar hybrid', level: 3 },
+  { all: ['laptop', 'cup'], name: 'Laptop + Tumbler', emoji: '💻🥤', hint: 'Nugas ala anak kafe', level: 3 },
+  { all: ['backpack', 'laptop'], name: 'Ransel + Laptop', emoji: '🎒💻', hint: 'Isi wajib tas mahasiswa', level: 3 },
   { all: ['book', 'bottle'], name: 'Buku + Botol', emoji: '📖🧴', hint: 'Siap kuliah pagi', level: 3 },
-  { all: ['backpack', 'umbrella'], name: 'Ransel + Payung', emoji: '🎒☂️', hint: 'Siap menembus hujan ke kampus', level: 3 },
-  { all: ['banana', 'bottle'], name: 'Pisang + Botol', emoji: '🍌🧴', hint: 'Bekal hemat akhir bulan', level: 3 },
-  { all: ['spoon', 'fork'], name: 'Sendok + Garpu', emoji: '🥄🍴', hint: 'Alat makan bekal', level: 3 },
-  { all: ['sandwich', 'cup'], name: 'Roti + Kopi', emoji: '🥪☕', hint: 'Sarapan sambil kelas pagi', level: 3 },
+  { all: ['backpack', 'bottle'], name: 'Ransel + Botol', emoji: '🎒🧴', hint: 'Siap berangkat ngampus', level: 3 },
+  { all: ['cell phone', 'book'], name: 'HP + Buku', emoji: '📱📖', hint: 'Foto catatan teman sebelum ujian', level: 3 },
   { all: ['book', 'scissors'], name: 'Buku + Gunting', emoji: '📖✂️', hint: 'Tugas kliping dadakan', level: 3 },
-  { label: 'refrigerator', name: 'Kulkas', emoji: '🧊', hint: 'Bawa kulkas ke kelas?! 😱 Gambar kulkas di layar HP teman juga dihitung', level: 4 },
-  { all: ['elephant', 'refrigerator'], name: 'Gajah + Kulkas', emoji: '🐘🧊', hint: 'Teka-teki klasik: gimana masukin gajah ke kulkas? Tunjukkan dua-duanya sekaligus! 🤣', level: 4 }
+  { all: ['backpack', 'umbrella'], name: 'Ransel + Payung', emoji: '🎒☂️', hint: 'Siap menembus hujan ke kampus', level: 3 },
+  { all: ['backpack', 'laptop', 'cell phone', 'book', 'bottle'], name: 'Bongkar Isi Tas', emoji: '🎒💻📱📖🧴', hint: 'Keluarkan SEMUA: ransel, laptop, HP, buku, botol, tunjukkan barengan! 🤣', level: 4 },
+  { all: ['tie', 'laptop', 'remote'], name: 'Gaya Sidang Skripsi', emoji: '👔💻🎛️', hint: 'Dasi + laptop + pointer. Latihan sidang dari sekarang 😎', level: 4 }
 ];
 window.ALIASES = { cup: ['cup', 'wine glass'] };
 window.LABEL_ID = terjemahan Bahasa Indonesia untuk ke-80 label COCO, contoh:
-  person 'orang', cell phone 'HP', refrigerator 'kulkas', elephant 'gajah', cup 'gelas',
-  bottle 'botol', book 'buku', teddy bear 'boneka', dining table 'meja', toilet 'kloset',
-  wine glass 'gelas kaki', sports ball 'bola', hair drier 'pengering rambut' (lengkapi semuanya).
+  person 'orang', cell phone 'HP', laptop 'laptop', cup 'gelas', bottle 'botol',
+  book 'buku', backpack 'tas ransel', handbag 'tas tangan', remote 'remot', tie 'dasi',
+  suitcase 'koper', umbrella 'payung', wine glass 'gelas kaki', dining table 'meja'
+  (lengkapi semuanya).
 
 # UI (public/index.html) — satu halaman, 3 <section class="screen">, hanya 1 yang tampil
 - <html lang="id">, meta viewport (viewport-fit=cover), theme-color #7b2ff7, font Google

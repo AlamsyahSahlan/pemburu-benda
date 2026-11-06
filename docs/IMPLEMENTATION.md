@@ -250,43 +250,33 @@ window.TARGETS = [
   { label: 'bottle', name: 'Botol Minum', emoji: '🧴', hint: 'Tumbler, botol air mineral, atau botol teh', also: ['cup'], level: 1 },
   { label: 'book', name: 'Buku / Binder', emoji: '📖', hint: 'Buku catatan, binder, atau modul kuliah', level: 1 },
   { label: 'backpack', name: 'Tas Ransel', emoji: '🎒', hint: 'Angkat tasmu ke depan kamera', level: 1 },
-  { label: 'cup', name: 'Cup Kopi / Gelas', emoji: '☕', hint: 'Cup kopi, es teh, atau gelas plastik', level: 1 },
   { label: 'mouse', name: 'Mouse', emoji: '🖱️', hint: 'Mouse wireless dari tas laptop', level: 1 },
-  { label: 'keyboard', name: 'Keyboard', emoji: '⌨️', hint: 'Keyboard eksternal atau keyboard laptop', level: 1 },
+  { label: 'cup', name: 'Tumbler / Gelas', emoji: '🥤', hint: 'Tumbler, gelas, atau cup minuman', level: 1 },
   { label: 'handbag', name: 'Tas Selempang / Tote', emoji: '👜', hint: 'Sling bag, tote bag, atau tas tangan', level: 1 },
-  { label: 'umbrella', name: 'Payung', emoji: '☂️', hint: 'Payung lipat andalan musim hujan', level: 1 },
 
   // Level 2 — Sedang
+  { label: 'keyboard', name: 'Keyboard', emoji: '⌨️', hint: 'Keyboard eksternal atau keyboard laptop', level: 2 },
   { label: 'scissors', name: 'Gunting', emoji: '✂️', hint: 'Sisa tugas maket atau kliping', level: 2 },
-  { label: 'spoon', name: 'Sendok', emoji: '🥄', hint: 'Sendok dari kotak bekal', level: 2 },
-  { label: 'fork', name: 'Garpu', emoji: '🍴', hint: 'Teman si sendok di kotak bekal', level: 2 },
-  { label: 'banana', name: 'Pisang', emoji: '🍌', hint: 'Bekal sehat anak kos', level: 2 },
-  { label: 'apple', name: 'Apel', emoji: '🍎', hint: 'Camilan sehat sebelum kuis', level: 2 },
-  { label: 'orange', name: 'Jeruk', emoji: '🍊', hint: 'Jeruk bekal, jangan dikupas dulu', level: 2 },
-  { label: 'sandwich', name: 'Roti Isi', emoji: '🥪', hint: 'Roti sarapan dari minimarket', level: 2 },
-  { label: 'donut', name: 'Donat', emoji: '🍩', hint: 'Donat titipan teman (jangan dimakan dulu!)', level: 2 },
-  { label: 'teddy bear', name: 'Boneka', emoji: '🧸', hint: 'Boneka kecil atau gantungan kunci boneka', level: 2 },
+  { label: 'umbrella', name: 'Payung', emoji: '☂️', hint: 'Payung lipat andalan musim hujan', level: 2 },
   { label: 'tie', name: 'Dasi', emoji: '👔', hint: 'Buat yang habis presentasi atau sidang', level: 2 },
-  { label: 'sports ball', name: 'Bola', emoji: '⚽', hint: 'Anak UKM futsal atau basket pasti bawa', level: 2 },
-  { label: 'toothbrush', name: 'Sikat Gigi', emoji: '🪥', hint: 'Anak kos yang nginep di kampus', level: 2 },
-  { label: 'remote', name: 'Pointer / Remot', emoji: '🎛️', hint: 'Pointer presentasi atau remot AC kelas', level: 2 },
+  { label: 'remote', name: 'Pointer Presentasi', emoji: '🎛️', hint: 'Clicker / pointer untuk presentasi', level: 2 },
   { label: 'suitcase', name: 'Koper', emoji: '🧳', hint: 'Yang habis kelas langsung pulang kampung', level: 2 },
 
   // Level 3 — Sulit (dua barang sekaligus)
   { all: ['laptop', 'mouse'], name: 'Laptop + Mouse', emoji: '💻🖱️', hint: 'Setup nugas lengkap', level: 3 },
   { all: ['laptop', 'cell phone'], name: 'Laptop + HP', emoji: '💻📱', hint: 'Multitasking: Zoom sambil balas grup', level: 3 },
-  { all: ['laptop', 'cup'], name: 'Laptop + Kopi', emoji: '💻☕', hint: 'Nugas ala anak kafe', level: 3 },
   { all: ['laptop', 'book'], name: 'Laptop + Buku', emoji: '💻📖', hint: 'Belajar hybrid', level: 3 },
+  { all: ['laptop', 'cup'], name: 'Laptop + Tumbler', emoji: '💻🥤', hint: 'Nugas ala anak kafe', level: 3 },
+  { all: ['backpack', 'laptop'], name: 'Ransel + Laptop', emoji: '🎒💻', hint: 'Isi wajib tas mahasiswa', level: 3 },
   { all: ['book', 'bottle'], name: 'Buku + Botol', emoji: '📖🧴', hint: 'Siap kuliah pagi', level: 3 },
-  { all: ['backpack', 'umbrella'], name: 'Ransel + Payung', emoji: '🎒☂️', hint: 'Siap menembus hujan ke kampus', level: 3 },
-  { all: ['banana', 'bottle'], name: 'Pisang + Botol', emoji: '🍌🧴', hint: 'Bekal hemat akhir bulan', level: 3 },
-  { all: ['spoon', 'fork'], name: 'Sendok + Garpu', emoji: '🥄🍴', hint: 'Alat makan bekal', level: 3 },
-  { all: ['sandwich', 'cup'], name: 'Roti + Kopi', emoji: '🥪☕', hint: 'Sarapan sambil kelas pagi', level: 3 },
+  { all: ['backpack', 'bottle'], name: 'Ransel + Botol', emoji: '🎒🧴', hint: 'Siap berangkat ngampus', level: 3 },
+  { all: ['cell phone', 'book'], name: 'HP + Buku', emoji: '📱📖', hint: 'Foto catatan teman sebelum ujian', level: 3 },
   { all: ['book', 'scissors'], name: 'Buku + Gunting', emoji: '📖✂️', hint: 'Tugas kliping dadakan', level: 3 },
+  { all: ['backpack', 'umbrella'], name: 'Ransel + Payung', emoji: '🎒☂️', hint: 'Siap menembus hujan ke kampus', level: 3 },
 
-  // Level 4 — Nyeleneh
-  { label: 'refrigerator', name: 'Kulkas', emoji: '🧊', hint: 'Bawa kulkas ke kelas?! 😱 Gambar kulkas di layar HP teman juga dihitung', level: 4 },
-  { all: ['elephant', 'refrigerator'], name: 'Gajah + Kulkas', emoji: '🐘🧊', hint: 'Teka-teki klasik: gimana masukin gajah ke kulkas? Tunjukkan dua-duanya sekaligus! 🤣', level: 4 }
+  // Level 4 — Nyeleneh (banyak perlengkapan sekaligus)
+  { all: ['backpack', 'laptop', 'cell phone', 'book', 'bottle'], name: 'Bongkar Isi Tas', emoji: '🎒💻📱📖🧴', hint: 'Keluarkan SEMUA: ransel, laptop, HP, buku, botol, tunjukkan barengan! 🤣', level: 4 },
+  { all: ['tie', 'laptop', 'remote'], name: 'Gaya Sidang Skripsi', emoji: '👔💻🎛️', hint: 'Dasi + laptop + pointer. Latihan sidang dari sekarang 😎', level: 4 }
 ];
 
 window.ALIASES = { cup: ['cup', 'wine glass'] };
@@ -296,12 +286,13 @@ window.ALIASES = { cup: ['cup', 'wine glass'] };
 
 ### 7.3 Kenapa barang ini dipilih
 
-- Semuanya termasuk 80 kelas COCO, jadi pasti bisa dikenali model.
+- **Hanya perlengkapan mahasiswa.** Semuanya termasuk 80 kelas COCO, jadi bisa dikenali model.
 - **Mudah**: barang yang ada di hampir setiap tas mahasiswa.
-- **Sedang**: barang yang hanya dibawa sebagian orang (bekal, perlengkapan UKM, anak kos). Ini memancing interaksi antarteman, misalnya "Siapa yang bawa pisang?!"
-- **Sulit**: kombinasi yang cerita-nya relatable (nugas, kelas pagi, akhir bulan).
-- **Nyeleneh**: mustahil dibawa, jadi pemain dipaksa kreatif memakai gambar di layar. Sekaligus menjadi bahan diskusi tentang cara kerja AI.
-- **Dikeluarkan** dengan sengaja: `knife` (benda tajam), `wine glass` sebagai target (tidak relevan), serta kendaraan, hewan, dan perabot besar (kecuali untuk Nyeleneh).
+- **Sedang**: perlengkapan yang hanya dibawa sebagian orang (keyboard, gunting, payung, dasi, pointer, koper). Ini memancing interaksi antarteman, misalnya "Siapa yang bawa gunting?!"
+- **Sulit**: kombinasi yang ceritanya relatable (nugas, kelas pagi, hujan, ujian).
+- **Nyeleneh**: tetap perlengkapan mahasiswa, tapi 3–5 barang harus terlihat bersamaan, jadi pemain harus heboh membongkar tas atau berpose seperti sidang skripsi.
+- **Sengaja tidak dipakai**: buah dan makanan (jarang dibawa dan sulit dideteksi), hewan, perabot besar (kulkas, kasur, dan sebagainya), kendaraan, serta `knife` (benda tajam).
+- **Tidak bisa dipakai**: pulpen, pensil, penghapus, penggaris, stapler, charger, flashdisk, dan jam tangan. Model COCO **tidak punya** label untuk barang-barang itu.
 
 ## 8. Frontend — public/index.html
 
@@ -406,7 +397,7 @@ function isMatch(labels, target) {
 
 - Target tunggal `cup` cocok jika AI melihat `cup` **atau** `wine glass`.
 - Target `bottle` dengan `also:['cup']` cocok jika AI melihat `bottle` atau `cup`.
-- Target `all:['elephant','refrigerator']` cocok jika **kedua** label muncul di respons yang sama.
+- Target `all:['tie','laptop','remote']` cocok jika **ketiga** label muncul di respons yang sama.
 
 ### 9.6 Loop scan & anti salah lihat
 
@@ -514,7 +505,7 @@ Browser HP hanya mengizinkan `getUserMedia` di **secure context** (HTTPS atau `l
    - Mahasiswa memindai QR, memilih **Advanced → Proceed** pada peringatan sertifikat, lalu mengizinkan kamera.
    - Agar tidak terkena rate limit, mainkan dalam **kelompok 3–5 orang per HP**.
    - Sesi seru yang disarankan: Mudah (3 ronde) → Sulit (3 ronde) → **Nyeleneh** sebagai penutup.
-4. **Diskusi setelah bermain:** Kenapa kulkas di layar HP tetap terdeteksi? Kenapa `person` selalu muncul? Apa arti confidence 0,5?
+4. **Diskusi setelah bermain:** Kenapa "Bongkar Isi Tas" susah? (Semakin banyak barang, semakin kecil tiap barang di frame.) Kenapa pulpen tidak bisa dideteksi? (Tidak ada di 80 label COCO.) Kenapa `person` selalu muncul? Apa arti confidence 0,5?
 
 ## 13. Pengujian
 
@@ -543,7 +534,7 @@ curl.exe -X POST http://localhost:3000/api/detect -H "Content-Type: image/jpeg" 
 | T4 | Diamkan 30 detik | "⏰ Waktu habis!", efek getar, tombol Lanjut |
 | T5 | Tekan Lewati | "⏭️ Dilewati", 0 poin |
 | T6 | Level Sulit "Laptop + Mouse": tunjukkan hanya laptop | Tidak dihitung berhasil |
-| T7 | Level Nyeleneh "Kulkas": tunjukkan gambar kulkas di HP lain | Berhasil |
+| T7 | Level Nyeleneh "Gaya Sidang Skripsi": tunjukkan dasi + laptop + pointer | Berhasil; jika salah satu hilang, tidak berhasil |
 | T8 | Level Nyeleneh pilih 5 ronde | Hanya 2 ronde (jumlah target Nyeleneh), HUD "x/2" |
 | T9 | Buka via `http://192.168.x.x:3000` di HP | Mode cadangan "📷 Foto Sekarang" |
 | T10 | Buka via `https://192.168.x.x:3443` di HP | Kamera langsung + tombol 🔄 |

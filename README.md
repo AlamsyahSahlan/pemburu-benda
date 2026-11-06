@@ -1,6 +1,6 @@
 # 🕵️ Pemburu Benda: Edisi Kampus
 
-Pemburu Benda adalah game web berbasis kamera untuk mahasiswa di kelas. Game memberi tantangan seperti "Cari **LAPTOP + MOUSE** dalam 30 detik!", lalu pemain mengeluarkan barang dari tas dan cukup **mengarahkan kamera** ke barang itu. AI **Object Detection** (telkom_ai_dag di Apilogy) mengecek secara otomatis, tanpa perlu menekan tombol foto. Ada juga level **🤪 Nyeleneh** (Kulkas, Gajah + Kulkas) yang memaksa pemain kreatif memakai gambar di layar HP.
+Pemburu Benda adalah game web berbasis kamera untuk mahasiswa di kelas. Game memberi tantangan seperti "Cari **LAPTOP + MOUSE** dalam 30 detik!", lalu pemain mengeluarkan barang dari tas dan cukup **mengarahkan kamera** ke barang itu. AI **Object Detection** (telkom_ai_dag di Apilogy) mengecek secara otomatis, tanpa perlu menekan tombol foto. Ada juga level **🤪 Nyeleneh** (Bongkar Isi Tas, Gaya Sidang Skripsi) yang meminta banyak perlengkapan kuliah sekaligus dalam satu frame.
 
 ## 📚 Dokumentasi
 
